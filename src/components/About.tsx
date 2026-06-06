@@ -27,7 +27,7 @@ export default function About() {
       {/* Background glow */}
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/[0.04] rounded-full blur-[150px] -translate-y-1/2" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <SectionHeading
           label="The Player"
           title="WHO IS FAHAMEDUL ISLAM"
@@ -78,13 +78,13 @@ export default function About() {
           <div className="pt-8 lg:pt-0">
             <AnimatedSection delay={0.1}>
               <div className="space-y-6">
-                <p className="text-white/70 text-lg leading-relaxed">
+                <p className="text-white/90 text-lg leading-relaxed">
                   From the dusty fields of Bangladesh to the professional
                   stadiums of Europe — Fahamedul Islam&apos;s journey is one of
                   unwavering determination. Every touch of the ball carries the
                   weight of 170 million dreams.
                 </p>
-                <p className="text-white/50 leading-relaxed">
+                <p className="text-white/70 leading-relaxed">
                   A dynamic midfielder with exceptional vision and technical
                   prowess, Fahamedul has represented Bangladesh on the
                   international stage while honing his craft at UC Sampdoria in
@@ -92,7 +92,7 @@ export default function About() {
                   tireless work ethic — a player who can change the game in a
                   single moment.
                 </p>
-                <p className="text-white/50 leading-relaxed">
+                <p className="text-white/70 leading-relaxed">
                   Off the pitch, he embodies the ambition of a new generation of
                   Bangladeshi footballers — proving that talent knows no
                   boundaries and that the beautiful game truly belongs to
@@ -116,7 +116,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className="section-divider mt-28 lg:mt-36 max-w-7xl mx-auto" />
+      <div className="section-divider mt-28 lg:mt-36 max-w-7xl mx-auto relative z-10" />
     </section>
   );
 }
