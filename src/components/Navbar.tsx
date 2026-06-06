@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -39,48 +38,59 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a href="#" className="relative group cursor-pointer">
-              <span className="font-[family-name:var(--font-bebas)] text-3xl tracking-wider">
-                <span className="text-primary">FAHAMEDUL</span>
-                <span className="text-white/40 ml-1">ISLAM</span>
+              <span className="font-[family-name:var(--font-bebas)] text-2xl tracking-[0.15em] text-white">
+                FAHAMEDUL
+                <span className="text-primary">.</span>
               </span>
             </a>
 
-            {/* Desktop */}
-            <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.08 * i, duration: 0.5 }}
-                  className="relative px-4 py-2 text-[13px] font-medium text-white/50 hover:text-white tracking-[0.15em] uppercase transition-colors duration-300 group cursor-pointer"
-                >
-                  {link.label}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-3/4" />
-                </motion.a>
-              ))}
+            {/* Center info — desktop */}
+            <div className="hidden md:flex items-center gap-0">
+              <span className="text-white/40 text-[11px] tracking-[0.35em] uppercase font-medium">
+                Bangladesh
+              </span>
+              <span className="text-white/20 mx-3 text-[8px]">·</span>
+              <span className="text-white/40 text-[11px] tracking-[0.35em] uppercase font-medium">
+                Forward
+              </span>
             </div>
 
-            {/* Mobile toggle */}
+            {/* Toggle button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden text-white/70 hover:text-primary transition-colors cursor-pointer"
+              className="relative w-11 h-11 rounded-full border border-white/15 hover:border-white/30 flex items-center justify-center transition-colors duration-300 cursor-pointer group"
               aria-label="Toggle menu"
             >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+              <div className="flex flex-col items-center justify-center gap-[5px]">
+                <motion.span
+                  animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="block w-[18px] h-[1.5px] bg-white/60 group-hover:bg-white transition-colors duration-300"
+                />
+                <motion.span
+                  animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.2 }}
+                  className="block w-[18px] h-[1.5px] bg-white/60 group-hover:bg-white transition-colors duration-300"
+                />
+                <motion.span
+                  animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="block w-[18px] h-[1.5px] bg-white/60 group-hover:bg-white transition-colors duration-300"
+                />
+              </div>
             </button>
           </div>
         </div>
       </motion.nav>
 
-      {/* Mobile menu */}
+      {/* Fullscreen menu overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
             className="fixed inset-0 z-40 bg-[#050505]/98 backdrop-blur-2xl flex flex-col items-center justify-center gap-2"
           >
             {navLinks.map((link, i) => (

@@ -22,9 +22,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="font-[family-name:var(--font-bebas)] text-3xl tracking-wider mb-4">
-              <span className="text-primary">FAHAMEDUL</span>
-              <span className="text-white/30 ml-1">ISLAM</span>
+            <div className="font-[family-name:var(--font-bebas)] text-2xl tracking-[0.15em] text-white mb-4">
+              FAHAMEDUL<span className="text-primary">.</span>
             </div>
             <p className="text-white/25 text-sm leading-relaxed max-w-xs">
               Professional footballer representing Bangladesh. Fearless on the
