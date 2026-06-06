@@ -1,0 +1,103 @@
+@import "tailwindcss";
+@source "../components";
+
+:root {
+  --primary: #e93a3b;
+  --primary-light: #ff5252;
+  --primary-dark: #c62828;
+  --primary-glow: rgba(233, 58, 59, 0.15);
+  --primary-glow-strong: rgba(233, 58, 59, 0.3);
+  --black: #050505;
+  --dark: #0a0a0a;
+  --dark-2: #111111;
+  --dark-3: #1a1a1a;
+  --dark-4: #222222;
+  --gray: #888888;
+  --gray-light: #aaaaaa;
+  --cream: #f0f0f0;
+  --white: #ffffff;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-dark: var(--dark);
+  --color-dark-2: var(--dark-2);
+  --color-dark-3: var(--dark-3);
+  --color-dark-4: var(--dark-4);
+  --color-gray: var(--gray);
+  --color-gray-light: var(--gray-light);
+  --color-cream: var(--cream);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-bebas);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+/* Red gradient text */
+.text-gradient-red {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-red {
+  box-shadow: 0 0 30px var(--primary-glow), 0 0 60px rgba(233, 58, 59, 0.08);
+}
+
+.glow-red-strong {
+  box-shadow: 0 0 40px var(--primary-glow-strong), 0 0 80px var(--primary-glow);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 40px var(--primary-glow-strong), 0 0 80px var(--primary-glow);
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-dark), transparent);
+  opacity: 0.2;
+}
+
+/* Noise overlay */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
