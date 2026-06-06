@@ -30,7 +30,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <SectionHeading
           label="The Player"
-          title="WHO IS FAHAMEDUL ISLAM"
+          title="ABOUT FAHAMEDUL ISLAM"
           subtitle="A story of passion, perseverance, and the relentless pursuit of footballing excellence."
         />
 
